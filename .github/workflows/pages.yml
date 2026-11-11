@@ -23,6 +23,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Provjera stranica (blokira objavu pokvarenog sadrzaja)
+        run: |
+          fail=0
+          for f in index.html scena.html novinarstvo.html; do
+            [ -f "$f" ] || { echo "::error::$f ne postoji"; fail=1; continue; }
+            size=$(wc -c < "$f")
+            if [ "$size" -lt 5000 ]; then echo "::error::$f je premali ($size B)"; fail=1; fi
+            if grep -qiE 'PLACEHOLDER|truncated for safety|TO_BE_REPLACED' "$f"; then echo "::error::$f sadrzi placeholder"; fail=1; fi
+            grep -qi '</html>' "$f" || { echo "::error::$f nema </html>"; fail=1; }
+            grep -qi '<title>' "$f" || { echo "::error::$f nema <title>"; fail=1; }
+          done
+          if [ "$fail" -ne 0 ]; then echo "Objava zaustavljena; zivi sajt ostaje na zadnjoj ispravnoj verziji."; exit 1; fi
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
