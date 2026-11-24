@@ -17,7 +17,10 @@
     html { scroll-behavior: smooth; }
     body { margin:0; font: 18px/1.58 Georgia, "Times New Roman", serif; color:var(--fg); background:var(--bg); }
     nav { position:sticky; top:0; z-index:2; background: color-mix(in srgb, var(--bg) 92%, white); border-bottom:1px solid var(--line); backdrop-filter: blur(8px); }
-    nav ul { list-style:none; display:flex; flex-wrap:wrap; gap:.15rem 1rem; max-width:40rem; margin:0 auto; padding:.65rem 1.25rem; font-size:.8rem; }
+    nav .bar { display:flex; align-items:center; gap:.75rem; max-width:40rem; margin:0 auto; padding:0 1.25rem; }
+    nav ul { list-style:none; display:flex; flex-wrap:wrap; gap:.15rem 1rem; flex:1; min-width:0; margin:0; padding:.65rem 0; font-size:.8rem; }
+    .lang { flex-shrink:0; font-size:.8rem; color:var(--muted); white-space:nowrap; margin:0; padding-left:.65rem; border-left:1px solid var(--line); }
+    .lang [aria-current="page"] { color:var(--fg); }
     nav a { color:var(--muted); text-decoration:none; }
     nav a:hover { color:var(--accent); }
     main { max-width:40rem; margin:0 auto; padding:2rem 1.25rem 4rem; }
@@ -55,6 +58,9 @@
     @media (max-width:640px) { nav ul { flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch; scrollbar-width:none; } }
   </style>
   <link rel="canonical" href="https://nikolacelan.hr/">
+  <link rel="alternate" hreflang="hr" href="https://nikolacelan.hr/">
+  <link rel="alternate" hreflang="en" href="https://nikolacelan.hr/en/">
+  <link rel="alternate" hreflang="x-default" href="https://nikolacelan.hr/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Nikola Čelan — novinar, književnik i glazbenik iz Splita">
@@ -65,6 +71,7 @@
 </head>
 <body>
 <nav aria-label="Sadržaj">
+  <div class="bar">
   <ul>
     <li><a href="#zivotopis">Životopis</a></li>
     <li><a href="#faze">Faze</a></li>
@@ -80,6 +87,8 @@
     <li><a href="#izvori">Izvori</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
+    <p class="lang"><a href="./" lang="hr" hreflang="hr" aria-current="page">HR</a> <span aria-hidden="true">|</span> <a href="en/" lang="en" hreflang="en">EN</a></p>
+  </div>
 </nav>
 <main>
   <div class="head">

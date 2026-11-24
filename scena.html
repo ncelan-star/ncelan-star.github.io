@@ -6,6 +6,9 @@
   <title>Scena — TBF, klapa i Libar | Nikola Čelan</title>
   <meta name="description" content="Esej o utjecaju TBF-a, klapskoj sceni i Libru: Split kao subjekt, od Kakadua 1992. do Baštine 2017.">
   <link rel="canonical" href="https://nikolacelan.hr/scena.html">
+  <link rel="alternate" hreflang="hr" href="https://nikolacelan.hr/scena.html">
+  <link rel="alternate" hreflang="en" href="https://nikolacelan.hr/en/scena.html">
+  <link rel="alternate" hreflang="x-default" href="https://nikolacelan.hr/scena.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:title" content="Scena — TBF, klapa i Libar">
   <meta property="og:description" content="Esej o utjecaju TBF-a, klapskoj sceni i Libru.">
@@ -19,7 +22,10 @@
     html { scroll-behavior: smooth; }
     body { margin:0; font: 18px/1.58 Georgia, "Times New Roman", serif; color:var(--fg); background:var(--bg); }
     nav { position:sticky; top:0; z-index:2; background: color-mix(in srgb, var(--bg) 92%, white); border-bottom:1px solid var(--line); backdrop-filter: blur(8px); }
-    nav ul { list-style:none; display:flex; flex-wrap:wrap; gap:.15rem 1rem; max-width:40rem; margin:0 auto; padding:.65rem 1.25rem; font-size:.8rem; }
+    nav .bar { display:flex; align-items:center; gap:.75rem; max-width:40rem; margin:0 auto; padding:0 1.25rem; }
+    nav ul { list-style:none; display:flex; flex-wrap:wrap; gap:.15rem 1rem; flex:1; min-width:0; margin:0; padding:.65rem 0; font-size:.8rem; }
+    .lang { flex-shrink:0; font-size:.8rem; color:var(--muted); white-space:nowrap; margin:0; padding-left:.65rem; border-left:1px solid var(--line); }
+    .lang [aria-current="page"] { color:var(--fg); }
     nav a { color:var(--muted); text-decoration:none; }
     nav a:hover { color:var(--accent); }
     main { max-width:40rem; margin:0 auto; padding:2rem 1.25rem 4rem; }
@@ -51,6 +57,7 @@
 </head>
 <body>
 <nav aria-label="Navigacija">
+  <div class="bar">
   <ul>
     <li><a href="./">← Nikola Čelan</a></li>
     <li><a href="#kanal">Kanal prije kataloga</a></li>
@@ -58,6 +65,8 @@
     <li><a href="#zasicenja">Zasićenja</a></li>
     <li><a href="#drugi-rat">Drugi rat</a></li>
   </ul>
+    <p class="lang"><a href="scena.html" lang="hr" hreflang="hr" aria-current="page">HR</a> <span aria-hidden="true">|</span> <a href="en/scena.html" lang="en" hreflang="en">EN</a></p>
+  </div>
 </nav>
 <main>
   <h1>Scena</h1>
